@@ -195,7 +195,7 @@ $(document)
 							}
 							MovieService.getMovies(that.title, currPage + 1, 4,
 									SfMoiveView.showMovies);
-						}
+						},
 						toogleMoreButton : function() {
 							var $moreMoviesBtn = $("#btn-moreMovies");
 							if (that.currPageNo < that.totalPages) {
