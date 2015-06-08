@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/tx 
+  http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+   "
+  >
+
+    <bean id="helloWorldService" class="com.mukul.sf_movies.HelloWorldService" scope="session">
+    <property name="sfMovieBeanDao" ref="sfMovieBeanDao"></property>
+    </bean>
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/sf_movies"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="test"/>
+    </bean>
+    
+  <bean id="sfMovieBeanManager" class="com.mukul.sf_movies.manager.impl.SfMoviesBeanManagerImpl"> 
+  <property name="sfMovieBeanDao" ref="sfMovieBeanDao"/>
+  </bean>
+ <bean id="sfMoviesProvider" class="com.mukul.sf_movies.provider.SfMoviesProvider">
+  <property name="sfMoviesBeanManager" ref="sfMovieBeanManager"/>
+  <property name="pageConverter" ref="pageConverter"/>
+  <property name="sfMovieBeanConverter" ref="sfMovieBeanConverter"/>
+ </bean>
+ 
+ <bean id="pageConverter" class="com.mukul.sf_movies.converters.PageConverter"/>
+ <bean id="sfMovieBeanConverter" class="com.mukul.sf_movies.converters.SfMovieBeanConverter" >
+ 	<property name="geoCodingManager" ref="geoCodingManager"/>
+ </bean>
+ 
+ <bean id="searchManager" class="com.mukul.sf_movies.manager.impl.SearchManagerImpl">
+ 	<property name="sfMovieBeanDao" ref="sfMovieBeanDao" />
+ </bean>
+ 
+ <bean id="searchProvider" class="com.mukul.sf_movies.provider.SearchProvider">
+ 	<property name="searchManager" ref="searchManager" />
+ </bean>
+ 
+ <bean id="searchService" class="com.mukul.sf_movies.services.SearchService">
+ 	<property name="searchProvider" ref="searchProvider" />
+ </bean>
+ 
+ <bean id="sfMoviesService" class="com.mukul.sf_movies.services.SfMovieService" scope="session">
+ 	<property name="sfMoviesBeanProvider" ref="sfMoviesProvider" />
+ </bean>
+ <bean id="geoCodingManager" class="com.mukul.sf_movies.manager.impl.GoogleGeoCodingManagerImpl" />
+ <bean id="applicationContextProvder"
+                        class="com.mukul.sf_movies.helper.ApplicationContextProvider"/>
+
+    <bean id = "sfMovieBeanDao" class ="com.mukul.sf_movies.dao.impl.SfMovieBeanDaoImpl">
+     <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <context:component-scan base-package="com.mukul.sf_movies" />
+    
+    <tx:annotation-driven transaction-manager="txManager"/>
+ 
+ 
+    <!-- a PlatformTransactionManager is still required -->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- (this dependency is defined somewhere else) -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+</beans>
