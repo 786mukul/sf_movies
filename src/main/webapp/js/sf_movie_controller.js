@@ -190,7 +190,7 @@ $(document)
 						},
 						fetchNextPage : function(title) {
 							var currPage = +that.currPageNo;
-							if (currPage < that.totalPages
+							if (currPage < +that.totalPages
 									|| that.totalPages === 0) {
 							}
 							MovieService.getMovies(that.title, currPage + 1, 4,
@@ -198,7 +198,7 @@ $(document)
 						},
 						toogleMoreButton : function() {
 							var $moreMoviesBtn = $("#btn-moreMovies");
-							if (that.currPageNo < that.totalPages) {
+							if (+that.currPageNo < +that.totalPages) {
 								if(!$moreMoviesBtn.is(':visible')){
 								$("#btn-moreMovies").show();
 								}
