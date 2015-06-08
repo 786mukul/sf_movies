@@ -199,11 +199,11 @@ $(document)
 						toogleMoreButton : function() {
 							var $moreMoviesBtn = $("#btn-moreMovies");
 							if (that.currPageNo < that.totalPages) {
-								if(!$moreMoviesBtn.is(:visible)){
+								if(!$moreMoviesBtn.is(':visible')){
 								$("#btn-moreMovies").show();
 								}
 							} else {
-								if($moreMoviesBtn.is(:visible)){
+								if($moreMoviesBtn.is(':visible')){
 								$("#btn-moreMovies").hide();
 								}
 							}
