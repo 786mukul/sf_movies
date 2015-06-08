@@ -108,8 +108,8 @@ $(document)
 								that.clearMap();
 								var $movieLocationDetailsDiv = $('#movieLocationDetailsDiv');
 								$movieLocationDetailsDiv.empty();
-								that.currPageNo = results.pageNumber;
-								that.totalPages = results.pagesAvailable;
+								that.currPageNo = +results.pageNumber;
+								that.totalPages = +results.pagesAvailable;
 								var movieItemsHtml = "";
 								var pageItems = results.pageItems;
 								if (Object.prototype.toString.call(pageItems) === '[object Array]') {
@@ -189,8 +189,8 @@ $(document)
 							}
 						},
 						fetchNextPage : function(title) {
-							var currPage = +that.currPageNo;
-							if (currPage < +that.totalPages
+							var currPage = that.currPageNo;
+							if (currPage < that.totalPages
 									|| that.totalPages === 0) {
 							}
 							MovieService.getMovies(that.title, currPage + 1, 4,
@@ -198,7 +198,7 @@ $(document)
 						},
 						toogleMoreButton : function() {
 							var $moreMoviesBtn = $("#btn-moreMovies");
-							if (+that.currPageNo < +that.totalPages) {
+							if (that.currPageNo < that.totalPages) {
 								if(!$moreMoviesBtn.is(':visible')){
 								$("#btn-moreMovies").show();
 								}
