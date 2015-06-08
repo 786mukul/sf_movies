@@ -84,6 +84,7 @@ $(document)
 						totalPages : 0,
 						title: undefined,
 						addMapMarker : function(id, coordinates, movieTitle) {
+							if(coordinates) {
 							var latlng = new google.maps.LatLng(
 									coordinates.latitude, coordinates.longitude);
 							var marker = new google.maps.Marker({
@@ -93,6 +94,7 @@ $(document)
 								animation : google.maps.Animation.DROP,
 							});
 							that.markerMap[id] = marker;
+						}
 						},
 						clearMap : function() {
 							for ( var key in this.markerMap) {
