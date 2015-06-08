@@ -163,7 +163,7 @@ $(document)
 								$movieLocationDetailsDiv.append(movieItemsHtml);
 							}
 							that.attachHandellers(results);
-							toogleMoreButton();
+							that.toogleMoreButton();
 						},
 						attachHandellers : function(results) {
 							var pageItems = results.pageItems;
@@ -196,6 +196,18 @@ $(document)
 							MovieService.getMovies(that.title, currPage + 1, 4,
 									SfMoiveView.showMovies);
 						}
+						toogleMoreButton : function() {
+							var $moreMoviesBtn = $("#btn-moreMovies");
+							if (that.currPageNo < that.totalPages) {
+								if(!$moreMoviesBtn.is(:visible)){
+								$("#btn-moreMovies").show();
+								}
+							} else {
+								if($moreMoviesBtn.is(:visible)){
+								$("#btn-moreMovies").hide();
+								}
+							}
+						}
 					}.init();
 
 					function fetchNextPage() {
@@ -207,13 +219,7 @@ $(document)
 						fetchNextPage()
 						}
 					})
-					function toogleMoreButton() {
-						if (that.currPageNo < that.totalPages) {
-							$("#btn-moreMovies").show();
-						} else {
-							$("#btn-moreMovies").hide();
-						}
-					}
+					
 					function typeAhead() {
 						$("#typeahead").typeahead(
 								{
