@@ -19,6 +19,39 @@ Tradeoffs/ More Features: I did several tradeoffs to save time. I did not create
 Code: Backend
 I tried to create a clear layred api stack with porper division of concerns.
 There are two services SfMovieService and SearchService.
+
+SfMoivieService 
+
+Path : /services/rest/movie
+
+Endpoints: 
+
+GET  /@all?title=terminator&page=2&count=4
+ 
+ query params : title - title of movie (optional returns all movies if not title present)
+ 
+      page: page number in pageination context(optional defaultvalue 1 is assigned)
+      count: number of elements in a page(optional defaultvalue 1 is assigned)
+
+
+GET  /{id} 
+
+path param : id of the movie you want info about
+
+
+
+SearchService
+
+path: /services/rest/search
+
+Endpoints
+
+GET /movies?title=th&limit=10
+
+ query params : title - prefix of a movie title(required)
+                
+                limit -  number of results returend in query(optinal default value 10 is assigned)
+
 A service has following layers
 
 
