@@ -19,7 +19,7 @@ Tradeoffs/ More Features: I did several tradeoffs to save time. I did not create
 
 
 
-Find tha Working app at  [Absolute README link](http://ec2-52-24-119-5.us-west-2.compute.amazonaws.com:8080/sf_movies/)
+Find the Working app [here](http://ec2-52-24-119-5.us-west-2.compute.amazonaws.com:8080/sf_movies/)
 
 
 Stack Used:
