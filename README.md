@@ -35,6 +35,8 @@ Bean: POJO mapping to some DB table.
 
 Entity: POJO represnetation of a resource that is served by service(could be formed from more than one bean)
 
+EntityCOnverter: Converts Bean to Entitiy. Also may Leave(Beans fields) or add fields to Entity 
+
 
 Find the Working app [here](http://ec2-52-24-119-5.us-west-2.compute.amazonaws.com:8080/sf_movies/)
 
