@@ -20,11 +20,19 @@ Code: Backend
 I tried to create a clear layred api stack with porper division of concerns.
 There are two services SfMovieService and SearchService.
 A service has following layers
+
+
 Service : deals with Json parsing and calling appropriate EntityProviders.
+
+
 Providers: Deal with json validation, bean conversion to entity, Calling appropriate converters and managers
+
 Manager: Manage the beans, handle CRUD operations on beans
+
 DAO: Persistence layer for beans
+
 Bean: POJO mapping to some DB table.
+
 Entity: POJO represnetation of a resource that is served by service(could be formed from more than one bean)
 
 
