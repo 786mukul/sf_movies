@@ -2,6 +2,9 @@
 A simple app backed by a web service that displays information about movies shoot locations in san francisco.
 Author Mukul Sharma
 Technical Track : Full Stack
+Problem: SF Movies
+Create a service that shows on a map where movies have been filmed in San Francisco. The user should be able to filter the view using autocompletion search.
+
 Technical Track Reasoning : I went with Full Stack technical track even though i am not very good in JS. I thought it was a good chance to test my JS skills.  I had various issues while working on the project. The data that i downloaded had missing/ inconsisient address strings. Also Google geocoding api has a rate limit, so i had to limit the results to 4 results per page only. I also had tough time getting this app coded as i had some issues at my current work(quarter release :) ) and hence limiting the time i was able to give to coding.
 
 
@@ -14,7 +17,7 @@ Tradeoffs/ More Features: I did several tradeoffs to save time. I did not create
 
 
 Stack Used:
-FrontEnd: Bootstrap, jquery, ajax, javascript, html, css.
+FrontEnd: Bootstrap,typeahead, jquery, ajax, javascript, html, css.
 Service: Rest, Jax-rs, jersey, JSON, Spring , postgres, Java
 Build tools : Maven
 
