@@ -28,15 +28,16 @@ Endpoints:
 
 GET  /@all?title=terminator&page=2&count=4
  
- query params : title - title of movie (optional returns all movies if not title present)
- 
+ query params : 
+      title - title of movie (optional returns all movies if not title present)
       page: page number in pageination context(optional defaultvalue 1 is assigned)
       count: number of elements in a page(optional defaultvalue 1 is assigned)
 
 
 GET  /{id} 
 
-path param : id of the movie you want info about
+path param : 
+      id of the movie you want info about
 
 
 
@@ -48,8 +49,8 @@ Endpoints
 
 GET /movies?title=th&limit=10
 
- query params : title - prefix of a movie title(required)
-                
+ query params : 
+              title - prefix of a movie title(required)
                 limit -  number of results returend in query(optinal default value 10 is assigned)
 
 A service has following layers
