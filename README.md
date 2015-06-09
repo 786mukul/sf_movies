@@ -16,7 +16,16 @@ Tradeoffs/ More Features: I did several tradeoffs to save time. I did not create
 1. IMDB Info. I thought of adding GET /rest/movies/{id}/imdb endpoint to rest service which will return the imdb resource associated with a movie, hence alowing front end to show Image, and additional info of  movie
 2. Create a login page, and make user signin. After that user can bookmark some place, get back to it and then ask for directons from the app.
 
-
+Code: Backend
+I tried to create a clear layred api stack with porper division of concerns.
+There are two services SfMovieService and SearchService.
+A service has following layers
+Service : deals with Json parsing and calling appropriate EntityProviders.
+Providers: Deal with json validation, bean conversion to entity, Calling appropriate converters and managers
+Manager: Manage the beans, handle CRUD operations on beans
+DAO: Persistence layer for beans
+Bean: POJO mapping to some DB table.
+Entity: POJO represnetation of a resource that is served by service(could be formed from more than one bean)
 
 
 Find the Working app [here](http://ec2-52-24-119-5.us-west-2.compute.amazonaws.com:8080/sf_movies/)
