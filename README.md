@@ -1,7 +1,10 @@
 # sf_movies
 A simple app backed by a web service that displays information about movies shoot locations in san francisco.
+
 Author Mukul Sharma
+
 Technical Track : Full Stack
+
 Problem: SF Movies
 Create a service that shows on a map where movies have been filmed in San Francisco. The user should be able to filter the view using autocompletion search.
 
@@ -14,6 +17,9 @@ Tradeoffs/ More Features: I did several tradeoffs to save time. I did not create
 2. Create a login page, and make user signin. After that user can bookmark some place, get back to it and then ask for directons from the app.
 
 
+
+
+Find tha Working app at  [Absolute README link](http://ec2-52-24-119-5.us-west-2.compute.amazonaws.com:8080/sf_movies/)
 
 
 Stack Used:
